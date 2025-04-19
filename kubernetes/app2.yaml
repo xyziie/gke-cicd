@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app2-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: flask-app
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-container
-          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app2-image
+          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app2-image:v01
           ports:
             - containerPort: 8081
 

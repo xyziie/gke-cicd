@@ -6,5 +6,5 @@ metadata:
   labels: {}
 description: dev
 gke:
-  cluster: projects/prj-poc-001/locations/us-central1-c/clusters/cluster-1
+  cluster: projects/qwiklabs-gcp-01-36238c49377d/locations/us-central1/clusters/autopilot-cluster-1
 

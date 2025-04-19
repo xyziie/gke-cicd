@@ -2,28 +2,28 @@ steps:
 
 # Docker Build command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/quickstart-image', './app1' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/quickstart-image', './app1' ]
   id: 'Build Docker Image'
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/quickstart-image'
+  # Docker Image Artifact Registry location
+  # - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/quickstart-image'
 
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/quickstart-image' ]
+  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/quickstart-image' ]
   id: 'Push Docker Image'
 
 # Docker Build command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/flask-image', './app2' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/flask-image', './app2' ]
   id: 'Build Docker Image2'
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/quickstart-image'
+  # Docker Image Artifact Registry location
+  # - 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/quickstart-image'
 
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/flask-image' ]
+  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/flask-image' ]
   id: 'Push Docker Image2'
 
 # Creating Cloud Deploy Pipeline and then creating releases for app1 and app2

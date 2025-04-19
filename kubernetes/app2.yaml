@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-container
-          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-repo/flask-image
+          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/flask-image
           ports:
             - containerPort: 8081
 

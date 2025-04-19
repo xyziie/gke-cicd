@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/quickstart-image
+          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app1-image
           ports:
             - containerPort: 8080
 

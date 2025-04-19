@@ -6,14 +6,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: app1
   template:
     metadata:
       labels:
-        app: my-app
+        app: app1
     spec:
       containers:
-        - name: my-container
+        - name: app1-container
           image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app1-image:v01
           ports:
             - containerPort: 8080
@@ -24,7 +24,7 @@ metadata:
   name: my-service
 spec:
   selector:
-    app: my-app
+    app: app1
   ports:
     - protocol: TCP
       port: 8080

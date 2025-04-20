@@ -1,4 +1,4 @@
-## Creating the pipeline for cloud deploy
+## Cloud Deploy Pipeline configuration alongwith
 apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:

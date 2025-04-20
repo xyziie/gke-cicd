@@ -65,7 +65,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: csi-filestore
+  storageClassName: app1-csi-filestore
   resources:
     requests:
       storage: 10Gi

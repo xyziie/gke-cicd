@@ -20,10 +20,10 @@ spec:
           volumeMounts:
             - mountPath: /home
               name: app1-pvc
-          volumes:
-            - name: app1-pvc
-              persistentVolumeClaim:
-              claimName: app1-pvc
+        volumes:
+        - name: app1-pvc
+          persistentVolumeClaim:
+            claimName: app1-pvc
 
 ---
 

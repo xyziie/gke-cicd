@@ -23,35 +23,25 @@ spec:
       volumes:
       - name: app1-storage
         persistentVolumeClaim:
-          claimName: app1-pvc
-          
----
+          claimName: my-app-pvc-dynamic
 
+---
+# --- pvc-dynamic.yaml ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: app1-pvc
+  name: my-app-pvc-dynamic # Name of your storage request
 spec:
+  # Use a StorageClass available in your GKE cluster
+  # 'standard-rwo' is a default GKE class using standard GCE PDs
+  storageClassName: standard-rwo
   accessModes:
-    - ReadWriteMany
+    # ReadWriteOnce allows the volume to be mounted as read-write by a single node
+    - ReadWriteOnce
   resources:
     requests:
+      # Request 10 GiB of storage
       storage: 10Gi
-
----
-# apiVersion: storage.k8s.io/v1
-# kind: StorageClass
-# metadata:
-#   name: app1-csi-filestore
-# provisioner: filestore.csi.storage.gke.io
-# parameters:
-#   # "CIDR range to allocate Filestore IP Ranges from"
-#   # reserved-ipv4-cidr: 192.168.92.22/26
-#   # # standard (default) or premier or enterprise
-#   # tier: premier
-#   # # Name of the VPC. Note that non-default VPCs require special firewall rules to be setup: TODO
-#   # network: default
-# allowVolumeExpansion: true
 
 ---
 

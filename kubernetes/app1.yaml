@@ -23,7 +23,7 @@ spec:
       volumes:
         - name: app1-pv
           persistentVolumeClaim:
-          claimName: app1-pvc
+            claimName: app1-pvc
   
 ---
 

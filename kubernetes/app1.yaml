@@ -26,6 +26,7 @@ spec:
           claimName: my-app-pvc-dynamic
 
 ---
+
 # --- pvc-dynamic.yaml ---
 apiVersion: v1
 kind: PersistentVolumeClaim

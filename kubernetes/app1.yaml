@@ -13,20 +13,47 @@ spec:
         app: app1
     spec:
       containers:
-        - name: app1-container
-          image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app1-image:v01
-          ports:
-            - containerPort: 8080
-          volumeMounts:
-            - mountPath: /home
-              name: app1-pv
+      - name: app1-container
+        image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app1-image:v01
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: /home
+          name: app1-storage
       volumes:
-        - name: app1-pv
-          persistentVolumeClaim:
-            claimName: app1-pvc
-  
+      - name: app1-storage
+        persistentVolumeClaim:
+          claimName: app1-pvc
+          
 ---
 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app1-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: app1-csi-filestore
+# provisioner: filestore.csi.storage.gke.io
+# parameters:
+#   # "CIDR range to allocate Filestore IP Ranges from"
+#   # reserved-ipv4-cidr: 192.168.92.22/26
+#   # # standard (default) or premier or enterprise
+#   # tier: premier
+#   # # Name of the VPC. Note that non-default VPCs require special firewall rules to be setup: TODO
+#   # network: default
+# allowVolumeExpansion: true
+
+---
 
 apiVersion: v1
 kind: Service
@@ -40,33 +67,3 @@ spec:
       port: 8080
       targetPort: 8080
   type: LoadBalancer
-
----
-
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: app1-csi-filestore
-provisioner: filestore.csi.storage.gke.io
-parameters:
-  # "CIDR range to allocate Filestore IP Ranges from"
-  # reserved-ipv4-cidr: 192.168.92.22/26
-  # # standard (default) or premier or enterprise
-  # tier: premier
-  # # Name of the VPC. Note that non-default VPCs require special firewall rules to be setup: TODO
-  # network: default
-allowVolumeExpansion: true
-
----
-
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: app1-pvc
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: app1-csi-filestore
-  resources:
-    requests:
-      storage: 10Gi

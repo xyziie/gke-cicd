@@ -17,13 +17,13 @@ spec:
           image: us-central1-docker.pkg.dev/qwiklabs-gcp-01-36238c49377d/gke-artifact-repo/app1-image:v01
           ports:
             - containerPort: 8080
-        #   volumeMounts:
-        #     - mountPath: /home
-        #       name: app1-pvc
-        # volumes:
-        # - name: app1-pvc
-        #   persistentVolumeClaim:
-        #     claimName: app1-pvc
+          volumeMounts:
+            - mountPath: /home
+              name: app1-pv
+      volumes:
+        - name: app1-pv
+          persistentVolumeClaim:
+          claimName: app1-pvc
   
 ---
 

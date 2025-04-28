@@ -1,5 +1,7 @@
 # CI/CD Pipeline for Deploying Applications on Google Kubernetes Engine (GKE)
-## Set up an Artifact registry, CloudBuild Trigger and 2 GKE cluster(Check K8's manifest files in the kubernetes folder)
+ - Set up an Artifact registry,
+ - CloudBuild Trigger and
+ - 2 GKE cluster(Check K8's manifest files in the kubernetes folder)
 
 
 ## Introduction

@@ -7,5 +7,5 @@ metadata:
 description: prod
 requireApproval: true
 gke:
-  cluster: projects/qwiklabs-gcp-01-36238c49377d/locations/us-central1/clusters/autopilot-cluster-2-prod
+  cluster: projects/qwiklabs-gcp-02-ab5f4917d21f/locations/us-central1/clusters/autopilot-cluster-2-prod
 

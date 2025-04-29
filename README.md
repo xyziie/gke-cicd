@@ -5,7 +5,8 @@
  - CloudBuild Trigger - (gke-cicd-build) > connect to your github repo (Check cloudbuild.yaml file & pipeline.yaml)
  - Set up an Artifact registry - (gke-artifact-repo) (Check cloudbuild.yaml file)
  - 2 GKE cluster(Check K8's manifest files in the kubernetes folder)
- - For Github CLI authentication, you will need to create Access token > go to github settings > developer settings > Personal Access Token(PAT) > Tokens(Classic) > <strong>Use it as password</strong>
+ - For Github CLI authentication(Through CloudShell Editor/VS Editor) - Recommended as no Access token needs to be created(Copy-paste the generated code)
+ - For Github CLI authentication(Through CloudShell), you will need to create Access token > go to github settings > developer settings > Personal Access Token(PAT) > Tokens(Classic) > <strong>Use it as password</strong>
 
 
 ## Introduction

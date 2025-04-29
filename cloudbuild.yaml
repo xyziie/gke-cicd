@@ -1,7 +1,7 @@
 steps:
 # Docker Build command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app1-image:v01', './app1' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app1-image:v02', './app1' ]
   id: 'Build Docker Image'
 
   # Docker Image Artifact Registry location
@@ -9,12 +9,12 @@ steps:
 
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app1-image:v01' ]
+  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app1-image:v02' ]
   id: 'Push Docker Image'
 
 # Docker Build command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app2-image:v01', './app2' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app2-image:v08', './app2' ]
   id: 'Build Docker Image2'
 
   # Docker Image Artifact Registry location
@@ -22,7 +22,7 @@ steps:
 
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app2-image:v01' ]
+  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-02-ab5f4917d21f/gke-artifact-repo/app2-image:v08' ]
   id: 'Push Docker Image2'
 
 # Creating Cloud Deploy Pipeline and then creating releases for app1 and app2

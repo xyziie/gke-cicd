@@ -1,4 +1,6 @@
 # CI/CD Pipeline for Deploying Applications on Google Kubernetes Engine (GKE)
+
+
 ## Manual Steps(can be automated using Terraform):
  - Cloud Deploy - enable API
  - CloudBuild Trigger - (gke-cicd-build) > connect to your github repo (Check cloudbuild.yaml file & pipeline.yaml)

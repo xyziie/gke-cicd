@@ -1,6 +1,9 @@
 # CI/CD Pipeline for Deploying Applications on Google Kubernetes Engine (GKE)
- - Set up an Artifact registry - (gke-artifact-repo)
- - CloudBuild Trigger
+
+## Manual Steps(can be automated using Terraform):
+ - Cloud Deploy - enable API
+ - CloudBuild Trigger - (gke-cicd-build) > connect to your github repo (Check cloudbuild.yaml file & pipeline.yaml)
+ - Set up an Artifact registry - (gke-artifact-repo) (Check cloudbuild.yaml file)
  - 2 GKE cluster(Check K8's manifest files in the kubernetes folder)
 
 

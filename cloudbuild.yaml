@@ -1,28 +1,28 @@
 steps:
 # Docker Build command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v02', './app1' ]
+  args: ['build', '-t', 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v01', './app1' ]
   id: 'Build Docker Image'
 
   # Docker Image Artifact Registry location
-  # - 'us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/quickstart-image'
+  # - 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/quickstart-image'
 
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v02' ]
+  args: ['push', 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v01' ]
   id: 'Push Docker Image'
 
 # Docker Build command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app2-image:v08', './app2' ]
+  args: ['build', '-t', 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app2-image:v01', './app2' ]
   id: 'Build Docker Image2'
 
   # Docker Image Artifact Registry location
-  # - 'us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/quickstart-image'
+  # - 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/quickstart-image'
 
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app2-image:v08' ]
+  args: ['push', 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app2-image:v01' ]
   id: 'Push Docker Image2'
 
 # Creating Cloud Deploy Pipeline and then creating releases for app1 and app2
@@ -32,14 +32,14 @@ steps:
   - -xe
   - -c
   - |
-    gcloud deploy apply --file cloud-deploy/pipeline.yaml --region=us-central1
-    gcloud deploy apply --file cloud-deploy/dev.yaml --region=us-central1
-    gcloud deploy apply --file cloud-deploy/prod.yaml --region=us-central1
+    gcloud deploy apply --file cloud-deploy/pipeline.yaml --region=us-east4
+    gcloud deploy apply --file cloud-deploy/dev.yaml --region=us-east4
+    gcloud deploy apply --file cloud-deploy/prod.yaml --region=us-east4
 
-    # gcloud deploy releases create 'app1-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-build --region=us-central1 --skaffold-file=skaffold.yaml
+    # gcloud deploy releases create 'app1-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-build --region=us-east4 --skaffold-file=skaffold.yaml
 
-    gcloud deploy releases create 'app1-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-build --region=us-central1 --from-k8s-manifest=./kubernetes/app1.yaml
-    gcloud deploy releases create 'app2-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-build --region=us-central1 --from-k8s-manifest=./kubernetes/app2.yaml
+    gcloud deploy releases create 'app1-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-build --region=us-east4 --from-k8s-manifest=./kubernetes/app1.yaml
+    gcloud deploy releases create 'app2-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-build --region=us-east4 --from-k8s-manifest=./kubernetes/app2.yaml
 
 
 options:

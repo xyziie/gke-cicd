@@ -8,6 +8,13 @@
  - Set up an Artifact registry - `gke-artifact-repo` (Check cloudbuild.yaml file)
  - For Github CLI authentication`Through CloudShell Editor/VS Editor` - Recommended as no Access token needs to be created(Copy-paste the generated code)
  - For Github CLI authentication `Through CloudShell`, you will need to create Access token > go to github settings > developer settings > Personal Access Token(PAT) > Tokens(Classic) > <strong>Use it as password</strong>
+ - To login to GIT: 
+    * git clone the repo > cd `gke-cicd` 
+    * git config --global user.name "xyziie"
+    * git config --global user.email "Your Email"
+    * Authenticate with code or PAT as requested on screen
+    * Try git add . / git commit -m "test-message" / git push
+
 
 
 ## Introduction

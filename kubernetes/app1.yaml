@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app1-container
-        image: us-central1-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v01
+        image: us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v01
         ports:
         - containerPort: 8080
         volumeMounts:

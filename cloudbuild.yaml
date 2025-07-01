@@ -4,9 +4,6 @@ steps:
   args: ['build', '-t', 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v01', './app1' ]
   id: 'Build Docker Image'
 
-  # Docker Image Artifact Registry location
-  # - 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/quickstart-image'
-
 # Docker Push Command
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-east4-docker.pkg.dev/qwiklabs-gcp-03-1b3e99931cdc/gke-artifact-repo/app1-image:v01' ]
